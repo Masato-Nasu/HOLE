@@ -1,0 +1,22 @@
+HOLE — Linux Mint build / install
+
+1) ZIPを「ダウンロード」に展開
+
+2) ターミナル
+
+cd ~/ダウンロード/HOLE-Transparent-Phone
+chmod +x gradlew build-apk.sh install-apk.sh verify-project.sh
+./verify-project.sh
+./build-apk.sh
+
+3) APK
+
+~/ダウンロード/HOLE-Transparent-Phone/app/build/outputs/apk/debug/app-debug.apk
+
+4) USBデバッグ済みのNothing Phone (2)へ入れる場合
+
+cd ~/ダウンロード/HOLE-Transparent-Phone
+./install-apk.sh
+
+※ Android SDK API 35 が必要です。Android Studioでフォルダを開いてRunしても構いません。
+※ 初回の ./gradlew は公式Gradle 8.11.1 wrapper/distributionをダウンロードし、SHA-256を検証します。

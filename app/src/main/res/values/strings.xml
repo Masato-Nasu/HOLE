@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">HOLE</string>
+    <string name="notification_channel_name">Transparent screen</string>
+    <string name="notification_channel_description">Keeps the camera overlay active while you use other apps.</string>
+</resources>

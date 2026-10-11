@@ -1,0 +1,18 @@
+{
+  "title": "HOLE — Transparent Phone",
+  "description": "スマートフォンの画面を、向こう側が見える「穴」に見せるAndroidアプリ。背面カメラを半透明で重ね、50%ではほかのアプリも操作できます。",
+  "image": "",
+  "imageRatio": "4:3",
+  "imageFit": "contain",
+  "appUrl": "https://github.com/Masato-Nasu/HOLE/releases/latest",
+  "repoUrl": "https://github.com/Masato-Nasu/HOLE",
+  "category": "photo-camera",
+  "platform": "android",
+  "tags": [
+    "Android",
+    "Camera",
+    "Overlay",
+    "Experimental",
+    "Optical Illusion"
+  ]
+}

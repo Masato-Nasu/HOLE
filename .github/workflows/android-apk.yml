@@ -1,0 +1,46 @@
+name: Build and Release HOLE APK
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK 35
+        run: sdkmanager --install 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.11.1'
+      - name: Verify prototype structure
+        run: bash verify-project.sh
+      - name: Build debug APK
+        run: gradle --no-daemon assembleDebug
+      - name: Rename APK
+        run: cp app/build/outputs/apk/debug/app-debug.apk HOLE-v0.1.0-debug.apk
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: HOLE-v0.1.0-debug-APK
+          path: HOLE-v0.1.0-debug.apk
+          if-no-files-found: error
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.1.0 >/dev/null 2>&1; then
+            gh release upload v0.1.0 HOLE-v0.1.0-debug.apk --clobber
+          else
+            gh release create v0.1.0 HOLE-v0.1.0-debug.apk \
+              --target "${GITHUB_SHA}" \
+              --title "HOLE v0.1.0 — Transparent Phone" \
+              --notes-file RELEASE_NOTES.md
+          fi
