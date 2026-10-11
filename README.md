@@ -6,9 +6,13 @@ HOLE is an experimental Android app that displays the rear camera as a transluce
 
 > **Status:** P0.1 prototype. The author confirmed installation and basic operation on Nothing Phone (2) on September 19, 2026. This package preserves the original app Java code and adds publication materials / CI only. The release produced through GitHub Actions is a **debug-signed test APK**, not a production-signed store release.
 
-## Demo / screenshots
+## Actual device screenshot
 
-Authentic screenshots and video are **not included** in this source archive. Capture them on the device with `bash scripts/capture-screen.sh [filename]`. We have intentionally not used computer-generated mockups as if they were actual app screenshots.
+HOLE running on the Nothing Phone (2): the Android home screen is layered over the live image from the rear camera. This is a **real device screenshot**, not a mockup.
+
+![HOLE — transparent home-screen overlay](docs/screenshots/HOLE-active-50.jpg)
+
+More device screenshots or video can be captured using `bash scripts/capture-screen.sh [filename]`.
 
 ## Features
 
