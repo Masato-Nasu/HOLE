@@ -10,7 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.TextureView;
+import android.view.TextureView;
 import android.widget.Toast;
 
 import java.util.Locale;
